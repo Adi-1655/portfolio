@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Enforcing the dark theme deeply */
+    --background: 275 60% 5%;
+    /* Really dark purple/indigo */
+    --foreground: 210 40% 98%;
+
+    --primary: 280 80% 60%;
+    /* Vibrant Violet */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 271 40% 12%;
+    /* Darker elevated surfaces */
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 310 80% 55%;
+    /* Neon Magenta */
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --neon-violet: 280 90% 65%;
+    --neon-magenta: 310 90% 55%;
+
+    --border: 271 40% 20%;
+    --input: 271 40% 20%;
+    --ring: 280 80% 60%;
+    --radius: 1rem;
+  }
+
+  /* We override the .dark class to be the exact same to prevent flash of wrong colors */
+  .dark {
+    --background: 275 60% 5%;
+    --foreground: 210 40% 98%;
+
+    --primary: 280 80% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 271 40% 12%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 310 80% 55%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --neon-violet: 280 90% 65%;
+    --neon-magenta: 310 90% 55%;
+
+    --border: 271 40% 20%;
+    --input: 271 40% 20%;
+    --ring: 280 80% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground tracking-wide;
+    /* Soft cosmic gradient background */
+    background-image: radial-gradient(circle at 15% 30%, rgba(138, 43, 226, 0.15), transparent 45%),
+      radial-gradient(circle at 85% 20%, rgba(217, 70, 239, 0.12), transparent 45%),
+      radial-gradient(circle at 50% 80%, rgba(138, 43, 226, 0.1), transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(10, 5, 20, 0.8), transparent 100%);
+    background-attachment: fixed;
+  }
+}
+
+/* Glassmorphism Utilities */
+@layer utilities {
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  .glass-button {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/15 transition-all duration-300;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 10px hsl(var(--neon-violet)), 0 0 20px hsl(var(--neon-violet));
+  }
+
+  .box-glow {
+    box-shadow: 0 0 15px hsl(var(--neon-magenta) / 0.3), inset 0 0 10px hsl(var(--neon-violet) / 0.1);
+  }
+}
